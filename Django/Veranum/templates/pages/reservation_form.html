@@ -1,0 +1,20 @@
+<!-- templates/pages/reservation_form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Reserva</title>
+</head>
+<body>
+    <h1>{{ form.instance.id_reserva|default:"Nueva Reserva" }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'reservation_list' %}">Cancelar</a>
+
+
+    
+</body>
+</html>

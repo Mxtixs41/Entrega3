@@ -1,0 +1,152 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/container.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        {% include 'base/header.html'%}
+
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+        <div class="carousel-inner">
+            <!-- Primera imagen activa -->
+            <div class="carousel-item active">
+                <img src="https://e1.pxfuel.com/desktop-wallpaper/835/329/desktop-wallpaper-restaurant-high-resolution-food-restaurant.jpg"
+                    class="d-block w-100" alt="..." height="600">
+                <div class="carousel-caption d-flex justify-content-center align-items-center">
+                    <h5 class="custom-caption " style="font-size: xx-large; text-shadow: 3px 3px black;">Disfruta de nuestro Restaurante</h5>
+                </div>
+            </div>
+            <!-- Segunda imagen -->
+            <div class="carousel-item">
+                <img src="https://www.eddkmagazine.com/wp-content/uploads/restaurantes-de-lujo-ibiza.jpeg"
+                    class="d-block w-100" alt="..." height="600" >
+            </div>
+            <!-- Tercera imagen -->
+            <div class="carousel-item">
+                <img src="https://media.timeout.com/images/105847181/750/422/image.jpg" class="d-block w-100" alt="..." height="600">
+            </div>
+        </div>
+        <!-- Controles del carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <h1 style="text-align: center; margin: 40px;">Productos Destacados </h1>
+    <p></p>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+                <img class="img-fluid w-100 h-auto mb-3 img-thumbnail shadow-sm rounded-0"
+                    src="https://images-ext-1.discordapp.net/external/UpYLin1xpJNjzyvVN18FJObLuWcslUGsEgWkNH8Yp_Q/https/portal.ucm.cl/content/uploads/2020/04/Cazuela-Dia-Cocina-Chilena-.jpg?format=webp&width=1014&height=676"
+                    alt="">
+                <h2 class="h4">Cazuela Chilena</h2>
+                <p class="small text-muted font-italic">Sumérgete en una deliciosa Cazuela Chilena, un plato
+                    reconfortante con carne tierna, verduras frescas y un caldo lleno de sabor. Una experiencia
+                    culinaria que te transportará a los hogares tradicionales de Chile. </p>
+                <button type="submit" class="form-control btn btn-primary rounded submit px-3">Ver Detalles</button>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+                <img class="img-fluid w-100 h-auto mb-3 img-thumbnail shadow-sm rounded-0"
+                    src="https://images-ext-1.discordapp.net/external/_2JinQvdjEwEbHrrWBrWEeAhy5Qrk18wF8MtYXoZL0g/https/www.comedera.com/wp-content/uploads/2022/11/porotos-granados.jpg?format=webp&width=1014&height=676"
+                    alt="">
+                <h2 class="h4">Porotos con Mazamorra</h2>
+                <p class="small text-muted font-italic">Disfruta de nuestros Porotos con Mazamorra, una combinación
+                    suave y cremosa de porotos cocidos y mazamorra, que captura la esencia de la cocina chilena y te
+                    deja encantado con su sabor auténtico.</p>
+                <button type="submit" class="form-control btn btn-primary rounded submit px-3">Ver Detalles</button>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+                <img class="img-fluid w-100 h-auto mb-3 img-thumbnail shadow-sm rounded-0"
+                    src="https://images-ext-1.discordapp.net/external/ZPeW4R6SwwuM7dTbbzpUSvbMSGmzGecUJLq4Lqx2raA/https/www.santaema.cl/wp-content/uploads/2020/08/Noticia_pastel_de_choclo.jpg?format=webp" height="676"
+                    alt="">
+                <h2 class="h4">Pastel de Choclo</h2>
+                <p class="small text-muted font-italic">Tentador y delicioso, nuestro Pastel de Choclo es un plato
+                    tradicional chileno preparado con maíz tierno, carne sazonada, pollo y aceitunas. Cada bocado es una
+                    mezcla perfecta de sabores dulces y salados que te transportarán a los paisajes de Chile.</p>
+                <button type="submit" class="form-control btn btn-primary rounded submit px-3">Ver Detalles</button>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <div class="container text-center" style=" margin-bottom: 70px; margin-top: 30px;background-color: antiquewhite;">
+        <div class="row">
+          
+          <div class="col" style="text-align: center; margin-top: 5%; padding-left: 5% ; padding-right: 5%; margin-bottom: 5%;">
+            <h2>Experiencia Única</h2>
+            <p> Descubre una experiencia gastronómica excepcional en nuestro exclusivo restaurante. Con chefs de
+                élite, cada plato es una obra maestra culinaria preparada con los más altos estándares de calidad.
+                Lo que nos distingue es que nuestros chefs preparan la comida frente a ti, creando una experiencia
+                personalizada y única. Sumérgete en un ambiente sofisticado y disfruta de la excelencia culinaria en
+                su máxima expresión. Ven y experimenta el placer de la alta cocina en vivo.
+            </p>
+          </div>
+          <div class="col">
+              <img src="front2.jpg" alt="" width="100%" height="100%">
+            </div>
+  
+        </div>
+    </div>
+
+    <div class="container text-center" style=" margin-bottom: 150px; background-color: antiquewhite;">
+      <div class="row">
+        
+        <div class="col" style="text-align: center; margin-top: 5%; padding-left: 5% ; padding-right: 5%; margin-bottom: 5%;">
+          <h2>Sumérgete en el Encanto de la Elegancia</h2>
+          <p> Déjate envolver por la elegancia y el encanto de nuestro restaurante. Con un ambiente sofisticado y
+            acogedor, cada detalle ha sido cuidadosamente seleccionado para brindarte una experiencia
+            excepcional. Desde la decoración refinada hasta la iluminación ambiental, nuestra atmósfera refleja
+            exclusividad y buen gusto en cada rincón. Sumérgete en un espacio donde la tranquilidad y la
+            sofisticación se combinan para crear el escenario perfecto para disfrutar de una comida inolvidable.
+            Ven y déjate llevar por la magia de nuestro ambiente único y distinguido.
+          </p>
+        </div>
+        <div class="col">
+            <img src="https://okdiario.com/coolthelifestyle/img/2023/01/16/image.jpg" alt="" width="100%" height="100%">
+          </div>
+
+      </div>
+    </div>
+
+    
+
+    {% include 'base/footer.html' %}
+    
+
+
+
+
+
+
+
+
+    <body>
+
+</html>

@@ -1,0 +1,17 @@
+<!-- templates/pages/reservation_confirm_delete.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmar Eliminación</title>
+</head>
+<body>
+    <h1>Eliminar Reserva</h1>
+    <p>¿Está seguro de que desea eliminar la reserva de {{ reservation.nombre }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="{% url 'reservation_list' %}">Cancelar</a>
+</body>
+</html>

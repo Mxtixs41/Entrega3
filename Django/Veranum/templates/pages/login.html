@@ -1,0 +1,220 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+  <body>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ 
+     {% include 'base/header.html'%}
+
+
+      <div class="container text-center" style="margin-top: 100px; margin-bottom: 150px;">
+        <div class="row">
+          
+          <div class="col-sm-5" style="padding-right: 45px;">
+            <h2 style="padding-top: 60px;padding-bottom: 10%">Accede a tu cuenta</h2>
+            <form style="text-align: left; ">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Correo:</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email">
+                    
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Contraseña</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <small id="emailHelp" class="form-text text-muted">Olvidé mi contraseña.</small>
+ 
+                </div> 
+                
+                <div class="form-group form-check "
+                 >
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                 <p></p>
+                  <label class="form-check-label" for="exampleCheck1" >Recuérdame</label>
+                </div>
+                <p></p>
+              </form>
+              <div class="form-group col-6 mx-auto">
+                <input type="submit" value="Ingresar" class="btn btn-outline-primary" onclick="validarInicio()">
+              </div>
+              <button style="opacity: 40%; color: black;"  type="button" class="btn btn-link w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                No tengo cuenta, me quiero registrar.
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content" style="padding:5%;">
+                    <div class="modal-header">
+                    </div>
+                    <div class="modal-body">
+                       
+                        <h1 style="padding-top: 12px; padding-bottom: 10px;"> Registro</h1> 
+                      
+                      <form>
+                        
+                        <div class="col" style="text-align: left;">
+                          <label for="formInput">Rut</label>
+                          <input type="text " class="form-control" name="rut" id="rut" placeholder="123457890">
+                          
+                          
+                        </div>
+                      <div class="row">
+                        <div class="col" style="text-align: left;">
+                          <label for="formInput"> Nombre </label>
+                          <input type="text" class="form-control" name="nombre" id="nombre">
+                        </div>
+
+                      <div class="col" style="text-align: left;">
+
+                          <label for="formInput" >  Apellido </label>
+                          <input type="text" class="form-control" name="apellido" id="apellido">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col" style="text-align: left;">
+                          <label for="formInput"> Correo </label>
+                          <input type="email" class="form-control" name="correo" id="correo">
+                        </div>
+
+                      <div class="col" style="text-align: left;">
+
+                          <label for="formInput"> Teléfono </label>
+                          <input type="text" class="form-control" name="telefono" id="telefono" placeholder="+569 ">
+                        </div>
+                      </div>
+
+                      <div class="col" style="text-align: left;">
+                        <label for="formInput"> Contraseña </label>
+                        <input type="password" class="form-control" name="password" id="password">
+                      </div>
+                      <div class="col" style="text-align: left;">
+                        <label for="formInput"> Confirmar Contraseña </label>
+                        <input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm">
+                        <small id="emailHelp" class="form-text text-muted"> Debe ser igual a la contraseña.</small>
+
+                      </div>
+
+                      <div>
+ <br>                          <small id="passwordInfo1">· Contiene al menos un número.</small>     
+                          <small id="passwordInfo2">· Contiene al menos una letra.    </small>  <br>                      
+                          <small id="passwordInfo3">· Contiene al menos un símbolo.</small>  
+                          <small id="passwordInfo4">· Contiene al menos 10 caracteres.</small>                                         
+                      </div>
+
+                      <div class="col" style="text-align: right; margin-top: 10%;">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                          Estoy de acuerdo con los <a style="color: blue ;"  >  Términos y Condiciones </a>
+                        </label>
+                      </div>
+
+                       
+
+                      </form>
+                    </div>
+                    <div class="form-group col-6 mx-auto">
+                      <input type="submit" value="Registrar" class="btn btn-outline-primary" onclick="validarRegistro()">
+                      <input type="reset" value="Cerrar" class="btn btn-outline-warning" onclick= "limpiarCampos()">
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+          </div>
+          
+          
+          <div class="col-sm-7">
+              <img src="https://cdn.luxuryhotel.world/file/hotcdn/hotel/cover/627674_1516797961.jpg" alt="" width="100%">
+            </div>
+  
+        </div>
+      </div>
+
+      
+
+      <div class="container text-center" style="margin-top: 100px; margin-bottom: 150px;">
+        <div class="row">
+          
+          
+         
+          
+          
+       
+  
+        </div>
+      </div>
+
+      <script src="/validar.js"></script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var passwordInput = document.getElementById("password");
+    
+       ;
+
+
+
+      var passwordInfo1 = document.getElementById("passwordInfo1");
+      var passwordInfo2 = document.getElementById("passwordInfo2");
+      var passwordInfo3 = document.getElementById("passwordInfo3");
+      var passwordInfo4 = document.getElementById("passwordInfo4");
+      
+
+      passwordInput.addEventListener("input", validatePassword);
+      confirmPasswordInput.addEventListener("input", validatePassword);
+
+      function validatePassword() {
+        var hasNumber = /\d/.test(passwordInput.value);
+        var hasLetter = /[a-zA-Z]/.test(passwordInput.value);
+        var hasSymbol = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(passwordInput.value);
+        var isLongEnough = passwordInput.value.length > 10;
+
+        if (hasNumber) {
+          passwordInfo1.style.color = "green";
+        } else {
+          passwordInfo1.style.color = "red";
+        }
+
+        if (hasLetter) {
+          passwordInfo2.style.color = "green";
+        } else {
+          passwordInfo2.style.color = "red";
+        }
+
+        if (hasSymbol) {
+          passwordInfo3.style.color = "green";
+        } else {
+          passwordInfo3.style.color = "red";
+        }
+
+        if (isLongEnough) {
+          passwordInfo4.style.color = "green";
+        } else {
+          passwordInfo4.style.color = "red";
+        }
+
+        if (hasNumber && hasLetter && hasSymbol && isLongEnough) {
+          passwordInput.style.borderColor = "green";
+          passwordInput.style.borderWidth = "medium";
+
+        } else {
+          passwordInput.style.borderColor = "red";
+          passwordInput.style.borderWidth = "medium";
+
+        }
+      }
+        });
+      </script>
+  </body>
+</html>  
