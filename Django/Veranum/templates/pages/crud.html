@@ -16,19 +16,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 shadow-lg mx-auto text-center p-3">
-                    <h2 class="my-3">Lista Usuarios</h2><br>
-                    <h3>Bienvenido </h3>
-                    <a href="{% url 'index' %}">
-                        <button class="btn btn-danger my-3">
-                            Cerrar Sesion
-                        </button>
-                    </a>
-                    <h3>Bienvenido Invitado</h3>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <h1 class="navbar-brand">Panel Staff</h1>
+                            <div class="ml-auto">  
+                                <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-link nav-link" style="padding: 0;">Cerrar Sesión</button>
+                            </form>
+                            </div>
+                        </div>
+                    </nav>
                     
+
+
+
                     <table class="table table-bordered table-hover table-bordered">
                         <thead>
                             <th>Rut</th>
                             <th>Nombre</th>
+                            <th>Habitacion</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Fecha Salida</th>
+                            <th>Huéspedes</th>
                             <th>Modificar</th>
                             <th>Eliminar</th>
                         </thead>
@@ -38,10 +48,18 @@
                             <tr>
                                 <td>{{tmp.rut}}</td>
                                 <td>{{tmp.nombre}} {{tmp.apellido_paterno}}</td>
-                                <td><a href=""><button
-                                            class="btn btn-warning">Modificar</button></a></td>
-                                <td><a href=""><button
-                                            class="btn btn-danger">Eliminar</button></a></td>
+                                <td>{{tmp.id_habitacion}}   </td>
+                                <td>{{tmp.fecha_entrada}}</td>
+                                <td>{{tmp.fecha_salida}}</td>
+                                <td>{{tmp.numero_visitantes}}</td>
+                                <td>                                        <td><a href="{% url 'update_reserva' tmp.pk %}" class="btn btn-warning">Modificar</a></td>
+
+                                <td>
+                                    <form method="post" action="{% url 'delete_reserva' tmp.pk %}" onsubmit="return confirm('¿Estás seguro de eliminar esta reserva?');">
+                                              {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </td>        
                             </tr>
                             {% endfor%}
                             {% endif %}

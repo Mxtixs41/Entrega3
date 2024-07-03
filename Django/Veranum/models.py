@@ -34,3 +34,4 @@ class reserva(models.Model):
            + str(self.apellido_paterno)
            
            )
+

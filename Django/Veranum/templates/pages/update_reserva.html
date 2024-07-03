@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Reserva</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Actualizar Reserva</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="rut">Rut:</label>
+                <input type="text" class="form-control" id="rut" name="rut" value="{{ reserva.rut }}" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ reserva.nombre }}" required>
+            </div>
+            <div class="form-group">
+                <label for="appPaterno">Apellido Paterno:</label>
+                <input type="text" class="form-control" id="appPaterno" name="appPaterno" value="{{ reserva.apellido_paterno }}" required>
+            </div>
+            <div class="form-group">
+                <label for="appMaterno">Apellido Materno:</label>
+                <input type="text" class="form-control" id="appMaterno" name="appMaterno" value="{{ reserva.apellido_materno }}" required>
+            </div>
+            <div class="form-group">
+                <label for="id_habitacion">Habitación:</label>
+                <select class="form-control" id="id_habitacion" name="id_habitacion" required>
+                    {% for habitacion in habitaciones %}
+                    <option value="{{ habitacion.id_habitacion }}" {% if reserva.id_habitacion.id_habitacion == habitacion.id_habitacion %} selected {% endif %}>
+                        {{ habitacion.nombre_habitacion }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numVisitantes">Número de Visitantes:</label>
+                <input type="number" class="form-control" id="numVisitantes" name="numVisitantes" value="{{ reserva.numero_visitantes }}" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaEntrada">Fecha de Entrada:</label>
+                <input type="date" class="form-control" id="fechaEntrada" name="fechaEntrada" value="{{ reserva.fecha_entrada|date:'Y-m-d' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaSalida">Fecha de Salida:</label>
+                <input type="date" class="form-control" id="fechaSalida" name="fechaSalida" value="{{ reserva.fecha_salida|date:'Y-m-d' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ reserva.email }}">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" value="{{ reserva.telefono }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar Reserva</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
