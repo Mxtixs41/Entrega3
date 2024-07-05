@@ -52,7 +52,7 @@
                                 <td>{{tmp.fecha_entrada}}</td>
                                 <td>{{tmp.fecha_salida}}</td>
                                 <td>{{tmp.numero_visitantes}}</td>
-                                <td>                                        <td><a href="{% url 'update_reserva' tmp.pk %}" class="btn btn-warning">Modificar</a></td>
+                                                                       <td><a href="{% url 'update_reserva' tmp.pk %}" class="btn btn-warning">Modificar</a></td>
 
                                 <td>
                                     <form method="post" action="{% url 'delete_reserva' tmp.pk %}" onsubmit="return confirm('¿Estás seguro de eliminar esta reserva?');">
