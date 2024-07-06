@@ -11,7 +11,7 @@
 <body>
     <div class="container mt-5">
         <h2>Actualizar Reserva</h2>
-        <form method="post">
+        <form action="" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="rut">Rut:</label>
@@ -23,33 +23,44 @@
             </div>
             <div class="form-group">
                 <label for="appPaterno">Apellido Paterno:</label>
-                <input type="text" class="form-control" id="appPaterno" name="appPaterno" value="{{ reserva.apellido_paterno }}" required>
+                <input type="text" class="form-control" id="appPaterno" name="appPaterno"
+                    value="{{ reserva.apellido_paterno }}" required>
             </div>
             <div class="form-group">
                 <label for="appMaterno">Apellido Materno:</label>
-                <input type="text" class="form-control" id="appMaterno" name="appMaterno" value="{{ reserva.apellido_materno }}" required>
+                <input type="text" class="form-control" id="appMaterno" name="appMaterno"
+                    value="{{ reserva.apellido_materno }}" required>
             </div>
             <div class="form-group">
                 <label for="id_habitacion">Habitación:</label>
-                <select class="form-control" id="id_habitacion" name="id_habitacion" required>
+                <select class="form-control" id="id_habitacion" name="id_habitacion" style="color: black;" required>
                     {% for habitacion in habitaciones %}
-                    <option value="{{ habitacion.id_habitacion }}" {% if reserva.id_habitacion.id_habitacion == habitacion.id_habitacion %} selected {% endif %}>
-                        {{ habitacion.nombre_habitacion }}
-                    </option>
+                        {% if habitacion.habitacion == reservacion.id_habitacion.habitacion %}
+                        <option value="{{ habitacion.id_habitacion }}" selected>
+                            {{ habitacion.habitacion }}
+                        </option>
+                        {% else %}
+                        <option value="{{ habitacion.id_habitacion }}">
+                            {{ habitacion.habitacion }}
+                        </option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
             <div class="form-group">
                 <label for="numVisitantes">Número de Visitantes:</label>
-                <input type="number" class="form-control" id="numVisitantes" name="numVisitantes" value="{{ reserva.numero_visitantes }}" required>
+                <input type="number" class="form-control" id="numVisitantes" name="numVisitantes"
+                    value="{{ reserva.numero_visitantes }}" required>
             </div>
             <div class="form-group">
                 <label for="fechaEntrada">Fecha de Entrada:</label>
-                <input type="date" class="form-control" id="fechaEntrada" name="fechaEntrada" value="{{ reserva.fecha_entrada|date:'Y-m-d' }}" required>
+                <input type="date" class="form-control" id="fechaEntrada" name="fechaEntrada"
+                    value="{{ reserva.fecha_entrada|date:'Y-m-d' }}" required>
             </div>
             <div class="form-group">
                 <label for="fechaSalida">Fecha de Salida:</label>
-                <input type="date" class="form-control" id="fechaSalida" name="fechaSalida" value="{{ reserva.fecha_salida|date:'Y-m-d' }}" required>
+                <input type="date" class="form-control" id="fechaSalida" name="fechaSalida"
+                    value="{{ reserva.fecha_salida|date:'Y-m-d' }}" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>

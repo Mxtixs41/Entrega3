@@ -17,6 +17,8 @@ urlpatterns = [path('', views.index,name='index'),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
     path('delete/<int:pk>/', views.delete_reserva, name='delete_reserva'),
     path('update/<int:pk>/', views.update_reserva, name='update_reserva'),
+    path('add',views.add_reserva, name='add_reserva'),
+
 
 
     
